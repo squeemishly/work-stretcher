@@ -1,0 +1,8 @@
+<h1>All Suggested Stretches</h1>
+
+<% @stretches.each do |stretch| %>
+  <h5><%= stretch.name %></h5>
+  <ul>
+    <li><%= stretch.description %></li>
+  </ul>
+<% end %>
