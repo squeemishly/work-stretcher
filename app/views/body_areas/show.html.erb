@@ -1,0 +1,5 @@
+<h3>Stretches for <%= @body_area.name %></h3>
+
+<% @body_area.stretches.each do |stretch| %>
+  <%= link_to stretch.name, stretch_path(stretch) %>
+<% end %>
