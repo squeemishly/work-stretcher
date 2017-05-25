@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170525021922) do
+ActiveRecord::Schema.define(version: 20170525133645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "body_area_stretches", force: :cascade do |t|
+    t.bigint "body_area_id"
+    t.bigint "stretch_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["body_area_id"], name: "index_body_area_stretches_on_body_area_id"
+    t.index ["stretch_id"], name: "index_body_area_stretches_on_stretch_id"
+  end
+
+  create_table "body_areas", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "stretches", force: :cascade do |t|
     t.string "name", null: false
@@ -21,4 +34,6 @@ ActiveRecord::Schema.define(version: 20170525021922) do
     t.string "picture", null: false
   end
 
+  add_foreign_key "body_area_stretches", "body_areas"
+  add_foreign_key "body_area_stretches", "stretches"
 end
