@@ -6,6 +6,7 @@ RSpec.describe "a user can be created" do
 
     fill_in "user[username]", with: "squee"
     fill_in "user[password]", with: "password"
+    fill_in "user[email]", with: "squee@squee.com"
     click_on "Create Account"
 
     expect(page).to have_content "Welcome, squee!"

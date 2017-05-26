@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "a registered user can login" do
   it "when a user tries to login" do
-    user = User.create(username: "squee", password: "password")
+    user = create(:user)
 
     visit login_path
 

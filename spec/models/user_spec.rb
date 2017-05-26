@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User do
   it "exists" do
-    user = User.create(username: "squee", password: "password", email: "squee@squee.com")
+    user = create(:user)
 
     expect(user).to be_valid
   end
@@ -15,7 +15,7 @@ RSpec.describe User do
 
   it "is invalid without a unique username" do
     user = User.create(username: "squee", password: "password", email: "squee@squee.com")
-    user2 = User.create(username: "squee", password: "password", email: "squee@squee.com")
+    user2 = User.create(username: "squee", password: "password", email: "squee@myself.com")
 
     expect(user2).to be_invalid
   end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "a user can logout" do
   it "when they click the logout button" do
-    user = User.create(username: "squee", password: "password")
+    user = create(:user)
 
     visit login_path
 
