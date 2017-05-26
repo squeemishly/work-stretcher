@@ -6,8 +6,8 @@ RSpec.describe "a registered user can login" do
 
     visit login_path
 
-    fill_in "user[username]", with: user.username
-    fill_in "user[password]", with: "password"
+    fill_in "session[username]", with: user.username
+    fill_in "session[password]", with: "password"
     click_on "Login"
 
     expect(page).to have_content "Welcome, #{user.username}!"
