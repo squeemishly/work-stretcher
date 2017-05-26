@@ -4,7 +4,8 @@ RSpec.describe "a registered user can login" do
   it "when a user tries to login" do
     user = create(:user)
 
-    visit login_path
+    visit stretches_path
+    click_on "Sign In"
 
     fill_in "session[username]", with: user.username
     fill_in "session[password]", with: "password"

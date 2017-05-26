@@ -12,6 +12,9 @@
     <% if current_user %>
       <h3>Welcome, <%= current_user.username %>!</h3>
       <%= link_to "Logout", logout_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign In", login_path %>
+      <%= link_to "Create an Account", new_user_path %>
     <% end %>
     <%= yield %>
   </body>

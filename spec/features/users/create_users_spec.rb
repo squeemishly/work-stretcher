@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "a user can be created" do
   it "they can create a login" do
-    visit new_user_path
+    visit stretches_path
+    click_on "Create an Account"
 
     fill_in "user[username]", with: "squee"
     fill_in "user[password]", with: "password"
