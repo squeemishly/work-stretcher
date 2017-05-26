@@ -24,6 +24,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem "factory_girl_rails", "~> 4.0"
   gem 'pry-rails'
+  gem 'awesome_print'
 end
 
 group :development do

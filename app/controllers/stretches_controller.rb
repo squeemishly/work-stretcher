@@ -1,6 +1,6 @@
 class StretchesController < ApplicationController
   def index
-    @stretches = Stretch.all
+    @stretches = Stretch.all.order(:name)
     @body_areas = BodyArea.all
   end
 
