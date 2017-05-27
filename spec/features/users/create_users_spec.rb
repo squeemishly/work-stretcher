@@ -22,5 +22,6 @@ RSpec.describe "a user can be created" do
     click_on "Create Account"
 
     expect(current_path).to eq new_user_path
+    expect(page).to have_content "Account creation failed. Please try again."
   end
 end

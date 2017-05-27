@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      redirect_to new_user_path
+      redirect_to new_user_path, alert: "Account creation failed. Please try again."
     end
   end
 

@@ -24,6 +24,7 @@ RSpec.describe "a registered user can login" do
     click_on "Login"
 
     expect(current_path).to eq login_path
+    expect(page).to have_content "Login failed. Please try again."
   end
 
   it "they can't login without a username" do
@@ -36,6 +37,7 @@ RSpec.describe "a registered user can login" do
     click_on "Login"
 
     expect(current_path).to eq login_path
+    expect(page).to have_content "Login failed. Please try again."
   end
 
   it "they can't login without a valid username" do
@@ -49,6 +51,7 @@ RSpec.describe "a registered user can login" do
     click_on "Login"
 
     expect(current_path).to eq login_path
+    expect(page).to have_content "Login failed. Please try again."
   end
 
   it "they can't login without a valid password" do
@@ -62,5 +65,6 @@ RSpec.describe "a registered user can login" do
     click_on "Login"
 
     expect(current_path).to eq login_path
+    expect(page).to have_content "Login failed. Please try again."
   end
 end
