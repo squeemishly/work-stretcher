@@ -4,5 +4,7 @@
 <img src="<%= @stretch.picture %>"/>
 
 <% if current_user && current_user.role == 'admin' %>
-  <p><%= link_to "Edit", edit_admin_stretch_path(@stretch) %></p>
+  <p><%= link_to "Edit", edit_admin_stretch_path(@stretch) %>
+  <%= link_to "Delete", admin_stretch_path(@stretch), :method => :delete %></p>
+
 <% end %>

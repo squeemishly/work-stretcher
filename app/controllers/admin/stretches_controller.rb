@@ -24,6 +24,12 @@ class Admin::StretchesController < ApplicationController
     redirect_to stretch_path(@stretch)
   end
 
+  def destroy
+    @stretch = Stretch.find(params[:id])
+    @stretch.destroy
+    redirect_to stretches_path
+  end
+
   private
 
   def stretch_params
