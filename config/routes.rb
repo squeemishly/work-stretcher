@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
   resources :admins, only: [:show]
   namespace :admin do
-    resources :stretches, only: [:new, :create]
+    resources :stretches, only: [:new, :create, :edit, :update]
   end
 
   get '/login', to: 'sessions#new'

@@ -14,6 +14,16 @@ class Admin::StretchesController < ApplicationController
     end
   end
 
+  def edit
+    @stretch = Stretch.find(params[:id])
+  end
+
+  def update
+    @stretch = Stretch.find(params[:id])
+    @stretch.update(stretch_params)
+    redirect_to stretch_path(@stretch)
+  end
+
   private
 
   def stretch_params
