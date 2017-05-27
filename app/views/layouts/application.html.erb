@@ -37,6 +37,10 @@
       <%= content_tag :div, msg, class: "flash_#{type}" %>
     <% end %>
 
+    <% if current_user.role == 'admin' %>
+      <%= link_to "Admin Dashboard", admin_path(:current_user) %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

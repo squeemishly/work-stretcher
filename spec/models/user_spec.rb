@@ -38,4 +38,18 @@ RSpec.describe User do
 
     expect(user2).to be_invalid
   end
+
+  it "can be created as an admin" do
+    user = create(:user, role: 1)
+
+    expect(user.role).to eq "admin"
+    expect(user.admin?).to be_truthy
+  end
+
+  it "is by default a user" do
+    user = create(:user)
+
+    expect(user.role).to eq "default"
+    expect(user.default?).to be_truthy
+  end
 end

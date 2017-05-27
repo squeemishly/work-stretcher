@@ -7,5 +7,6 @@ FactoryGirl.define do
     sequence :email do |i|
       "squee#{i}@squee.com"
     end
+    role 0
   end
 end
