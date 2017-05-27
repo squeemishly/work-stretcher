@@ -35,14 +35,15 @@ RSpec.describe "an admin can edit stretches" do
   #   expect(page).to have_content "not a stretch, but just as awesome"
   # end
 
-  # it "but a regular user cannot" do
-  #   user = create(:user)
-  #   allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-  #
-  #   visit stretch_path(stretch)
-  #   expect(page).to_not have_content "Edit"
-  #
-  #   visit edit_stretch_path(stretch)
-  #   expect(page).to have_content "The page you were looking for doesn't exist."
-  # end
+  it "but a regular user cannot" do
+    user = create(:user)
+    stretch = create(:stretch)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit stretch_path(stretch)
+    expect(page).to_not have_content "Edit"
+
+    visit edit_admin_stretch_path(stretch)
+    expect(page).to have_content "The page you were looking for doesn't exist."
+  end
 end
