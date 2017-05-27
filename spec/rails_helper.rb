@@ -27,4 +27,5 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
+  config.filter_gems_from_backtrace "capybara", "rack-2.0.3", "railties-5.1.1", "rack-test-0.6.3"
 end
