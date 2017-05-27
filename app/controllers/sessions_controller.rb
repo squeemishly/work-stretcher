@@ -8,14 +8,12 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      # test for flash message user doesn't exist of incorrect password.
-      # test that it redirects to login page
-      redirect_to login_path
+      redirect_to login_path, alert: "Login failed. Please try again."
     end
   end
 
   def destroy
     session.clear
-    redirect_to root_path
+    redirect_to root_path, alert: "You have been logged out."
   end
 end

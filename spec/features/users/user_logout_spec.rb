@@ -14,6 +14,7 @@ RSpec.describe "a user can logout" do
 
     click_on "Logout"
     expect(page).to_not have_content "Welcome, #{user.username}!"
+    expect(page).to have_content "You have been logged out."
   end
 
   it "there isn't a logout button until a user is logged in" do
