@@ -25,7 +25,7 @@ RSpec.describe "a user can see a stretch for a body part" do
     expect(page).to have_content(stretch1.name)
     expect(page).to have_content(stretch2.name)
 
-    expect(page).to have_content("Find a stretch: ")
+    expect(page).to have_content("Find a Stretch: ")
     fill_in "stretch_search", with: body_area1.name
     click_on "Go!"
 
