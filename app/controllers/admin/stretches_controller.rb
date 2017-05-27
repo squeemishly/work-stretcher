@@ -1,4 +1,6 @@
 class Admin::StretchesController < ApplicationController
+  before_action :require_admin
+
   def new
     @stretch = Stretch.new
   end
@@ -16,5 +18,9 @@ class Admin::StretchesController < ApplicationController
 
   def stretch_params
     params.require(:stretch).permit(:name, :description, :picture)
+  end
+
+  def require_admin
+    render file: "/public/404" unless current_admin?
   end
 end
