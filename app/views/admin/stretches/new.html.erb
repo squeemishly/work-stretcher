@@ -1,0 +1,14 @@
+<h3>Create a New Stretch</h3>
+
+<%= form_for [:admin, @stretch] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :picture %>
+  <%= f.text_field :picture %>
+
+  <%= f.submit %>
+<% end %>

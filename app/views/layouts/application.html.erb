@@ -26,6 +26,9 @@
         <% if current_user %>
           <h3>Welcome, <%= current_user.username %>!</h3>
           <%= link_to "Logout", logout_path, method: :delete %>
+          <% if current_user.role == 'admin' %>
+            <%= link_to "Admin Dashboard", admin_path(:current_user) %>
+          <% end %>
         <% else %>
           <%= link_to "Sign In", login_path %>
           <%= link_to "Create an Account", new_user_path %>
@@ -35,10 +38,6 @@
 
     <% flash.each do |type, msg| %>
       <%= content_tag :div, msg, class: "flash_#{type}" %>
-    <% end %>
-
-    <% if current_user.role == 'admin' %>
-      <%= link_to "Admin Dashboard", admin_path(:current_user) %>
     <% end %>
 
     <%= yield %>
