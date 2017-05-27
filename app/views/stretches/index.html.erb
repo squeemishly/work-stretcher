@@ -5,4 +5,7 @@
   <ul>
     <li><%= stretch.description %></li>
   </ul>
+  <% if current_user && current_user.role == 'admin' %>
+    <p><%= link_to "Edit", edit_admin_stretch_path(stretch) %></p>
+  <% end %>
 <% end %>
