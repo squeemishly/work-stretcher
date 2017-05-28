@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170527163350) do
+ActiveRecord::Schema.define(version: 20170528222233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20170527163350) do
     t.string "name"
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "stretch_id"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stretch_id"], name: "index_favorites_on_stretch_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "stretches", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
@@ -43,4 +53,6 @@ ActiveRecord::Schema.define(version: 20170527163350) do
 
   add_foreign_key "body_area_stretches", "body_areas"
   add_foreign_key "body_area_stretches", "stretches"
+  add_foreign_key "favorites", "stretches"
+  add_foreign_key "favorites", "users"
 end
