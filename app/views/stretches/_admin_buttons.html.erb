@@ -1,0 +1,6 @@
+<% if current_user && current_user.role == 'admin' %>
+  <div class="admin-buttons">
+    <div class="edit-link"><%= link_to "Edit", edit_admin_stretch_path(stretch) %></div>
+    <div class="delete-link"><%= link_to "Delete", admin_stretch_path(stretch), method: "delete" %></div>
+  </div>
+<% end %>

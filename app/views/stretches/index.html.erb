@@ -8,11 +8,6 @@
       <h4 class="stretch-name"><%= link_to stretch.name, stretch_path(stretch) %></h4>
       <%= stretch.description %>
     </div>
-    <% if current_user && current_user.role == 'admin' %>
-      <div class="admin-buttons">
-        <div class="edit-link"><%= link_to "Edit", edit_admin_stretch_path(stretch) %></div>
-        <div class="delete-link"><%= link_to "Delete", admin_stretch_path(stretch), method: "delete" %></div>
-      </div>
-    <% end %>
+      <%= render partial: "admin_buttons", :locals => {:stretch => stretch} %>
   </div>
 <% end %>

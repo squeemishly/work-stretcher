@@ -1,8 +1,8 @@
 <h3>Stretches by Body Area</h3>
 
 <% @body_areas.each do |area| %>
-  <h4><%= link_to area.name, body_area_path(area) %></h4>
-  <ul>
+  <h4 class='body-area-name'><%= link_to area.name, body_area_path(area) %></h4>
+  <ul class='body-area-stretches'>
   <% area.stretches.each do |stretch| %>
     <li><%= link_to stretch.name, stretch_path(stretch) %>
   <% end %>
