@@ -18,10 +18,10 @@ RSpec.describe "an admin can create a body area" do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit admin_path(admin)
+    visit admin_path(user)
     expect(page).to have_content "The page you were looking for doesn't exist."
 
-    visit admin_body_area_new_path
+    visit new_admin_body_area_path
     expect(page).to have_content "The page you were looking for doesn't exist."
   end
 
