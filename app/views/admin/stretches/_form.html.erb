@@ -9,7 +9,6 @@
   <%= f.text_field :picture %><br/>
 
   <%= f.label "Body Area" %><br/>
-  <%#= f.collection_select :body_area_id, BodyArea.all, :id, :name, prompt: 'Select a Body Area' %>
   <%= f.collection_check_boxes :body_area_ids, BodyArea.all, :id, :name do |cb| %>
     <% cb.label {cb.check_box + cb.text} %>
   <% end %>

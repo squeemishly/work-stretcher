@@ -55,4 +55,19 @@ RSpec.describe "an admin can edit stretches" do
     visit stretches_path
     expect(page).to_not have_content "Edit"
   end
+
+  it "they cannot leave a field blank" do
+    admin = create(:user, role: 1)
+    stretch = create(:stretch)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+    visit stretch_path(stretch)
+    click_on "Edit"
+
+    fill_in "stretch[name]", with: ""
+    click_on "Update Stretch"
+
+    expect(current_path).to eq edit_admin_stretch_path(stretch)
+    expect(page).to have_content "You must fill in all information to edit this stretch."
+  end
 end

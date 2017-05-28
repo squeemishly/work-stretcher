@@ -3,6 +3,7 @@ class Admin::StretchesController < ApplicationController
 
   def new
     @stretch = Stretch.new
+    # still need to get the stretch to associate with the body part.
   end
 
   def create
@@ -10,7 +11,7 @@ class Admin::StretchesController < ApplicationController
     if @stretch.save
       redirect_to admin_path(:current_user), alert: "#{@stretch.name} has been created!"
     else
-      # create sad path test
+      redirect_to new_admin_stretch_path, alert: "You cannot create that stretch without all the relevent information. Please try again."
     end
   end
 
@@ -20,8 +21,11 @@ class Admin::StretchesController < ApplicationController
 
   def update
     @stretch = Stretch.find(params[:id])
-    @stretch.update(stretch_params)
-    redirect_to stretch_path(@stretch)
+    if @stretch.update(stretch_params)
+      redirect_to stretch_path(@stretch)
+    else
+      redirect_to edit_admin_stretch_path(@stretch), alert: "You must fill in all information to edit this stretch."
+    end
   end
 
   def destroy
