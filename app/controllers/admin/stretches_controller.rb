@@ -36,7 +36,7 @@ class Admin::StretchesController < ApplicationController
   private
 
   def stretch_params
-    params.require(:stretch).permit(:name, :description, :picture)
+    params.require(:stretch).permit(:name, :description, :picture, body_area_ids:[])
   end
 
   def require_admin
