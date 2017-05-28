@@ -1,14 +1,23 @@
 <h3>Create a New Account</h3>
 
 <%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+  <table>
+    <tr>
+      <td><%= f.label :username %></td>
+      <td><%= f.text_field :username %></td>
+    </tr>
 
-  <%= f.label :password %>
-  <%= f.text_field :password %>
+    <tr>
+      <td><%= f.label :password %></td>
+      <td><%= f.text_field :password %></td>
+    </tr>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+    <tr>
+      <td><%= f.label :email %></td>
+      <td><%= f.text_field :email %></td>
+    </tr>
 
-  <%= f.submit "Create Account" %>
+    <tr>
+      <td><%= f.submit "Create Account" %></td>
+    </tr>
 <% end %>

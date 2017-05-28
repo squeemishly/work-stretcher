@@ -24,11 +24,13 @@
       </div>
       <div class="login">
         <% if current_user %>
-          <h3>Welcome, <%= current_user.username %>!</h3>
-          <%= link_to "Logout", logout_path, method: :delete %>
-          <% if current_user.role == 'admin' %>
-            <%= link_to "Admin Dashboard", admin_path(:current_user) %>
-          <% end %>
+          <h3 class="welcome">Welcome, <%= current_user.username %>!</h3>
+          <div class="logout">
+            <%= link_to "Logout", logout_path, method: :delete %>
+            <% if current_user.role == 'admin' %>
+              <%= link_to "Admin Dashboard", admin_path(:current_user) %>
+            <% end %>
+          </div>
         <% else %>
           <%= link_to "Sign In", login_path %>
           <%= link_to "Create an Account", new_user_path %>

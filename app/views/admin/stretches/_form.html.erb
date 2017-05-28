@@ -1,17 +1,27 @@
 <%= form_for [:admin, @stretch] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br/>
+  <table>
+    <tr>
+      <%= f.label "Body Area" %>
+      <%= f.collection_check_boxes :body_area_ids, BodyArea.all, :id, :name do |cb| %>
+        <% cb.label {cb.check_box + cb.text} %>
+      <% end %>
+    </tr>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %><br/>
+    <tr>
+      <td><%= f.label :name %></td>
+      <td><%= f.text_field :name %></td>
+    </tr>
 
-  <%= f.label :picture %>
-  <%= f.text_field :picture %><br/>
+    <tr>
+      <td><%= f.label :description %></td>
+      <td><%= f.text_field :description %></td>
+    </tr>
 
-  <%= f.label "Body Area" %><br/>
-  <%= f.collection_check_boxes :body_area_ids, BodyArea.all, :id, :name do |cb| %>
-    <% cb.label {cb.check_box + cb.text} %>
-  <% end %>
-  <br />
-  <%= f.submit %>
+    <tr>
+      <td><%= f.label :picture %></td>
+      <td><%= f.text_field :picture %></td>
+    </tr>
+
+    <tr><td><%= f.submit %></td></tr>
+  </table>
 <% end %>

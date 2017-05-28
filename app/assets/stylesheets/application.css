@@ -7,3 +7,20 @@ nav {
   justify-content: space-between;
   align-items: center;
 }
+
+img {
+  max-width: 275px;
+}
+
+.logo {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.welcome {
+  margin: 0;
+}
+
+.logout {
+  text-align: right;
+}
