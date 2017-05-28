@@ -1,15 +1,18 @@
-<%= form_for [:admin, @stretch, @body_area] do |f| %>
+<%= form_for [:admin, @stretch] do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name %><br/>
 
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_field :description %><br/>
 
   <%= f.label :picture %>
-  <%= f.text_field :picture %>
+  <%= f.text_field :picture %><br/>
 
-  <%= f.label :body_area_id %>
-  <%= f.collection_select :body_area_id, BodyArea.all, :id, :name, prompt: 'Select a Body Area' %>
-
+  <%= f.label "Body Area" %><br/>
+  <%#= f.collection_select :body_area_id, BodyArea.all, :id, :name, prompt: 'Select a Body Area' %>
+  <%= f.collection_check_boxes :body_area_ids, BodyArea.all, :id, :name do |cb| %>
+    <% cb.label {cb.check_box + cb.text} %>
+  <% end %>
+  <br />
   <%= f.submit %>
 <% end %>

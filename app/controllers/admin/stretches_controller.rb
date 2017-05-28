@@ -3,7 +3,6 @@ class Admin::StretchesController < ApplicationController
 
   def new
     @stretch = Stretch.new
-    @body_area = BodyArea.all
   end
 
   def create
