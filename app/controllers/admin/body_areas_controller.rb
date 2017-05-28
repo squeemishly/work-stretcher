@@ -8,7 +8,7 @@ class Admin::BodyAreasController < ApplicationController
     if @body_area.save
       redirect_to body_areas_path, alert: "#{@body_area.name} has been created!"
     else
-      # write sad path test and instructions
+      redirect_to new_admin_body_area_path, alert: "You could not create a body area. Please try again."
     end
   end
 
