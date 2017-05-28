@@ -1,4 +1,4 @@
-<%= form_for [:admin, @stretch] do |f| %>
+<%= form_for [:admin, @stretch, @body_area] do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
 
@@ -7,6 +7,9 @@
 
   <%= f.label :picture %>
   <%= f.text_field :picture %>
+
+  <%= f.label :body_area_id %>
+  <%= f.collection_select :body_area_id, BodyArea.all, :id, :name, prompt: 'Select a Body Area' %>
 
   <%= f.submit %>
 <% end %>
