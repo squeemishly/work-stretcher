@@ -1,0 +1,5 @@
+<h3>Stretches by Body Area</h3>
+
+<% @body_areas.each do |area| %>
+  <%= link_to area.name, body_area_path(area) %>
+<% end %>

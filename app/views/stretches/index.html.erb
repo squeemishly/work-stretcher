@@ -1,5 +1,7 @@
 <h1>All Suggested Stretches</h1>
 
+<%= link_to "See Stretches by Body Area", body_areas_path %>
+
 <% @stretches.each do |stretch| %>
   <h5><%= link_to stretch.name, stretch_path(stretch) %></h5>
   <ul>

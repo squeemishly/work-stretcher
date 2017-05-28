@@ -1,0 +1,7 @@
+<h3>Create a new Body Area</h3>
+
+<%= form_for [:admin, @body_area] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
