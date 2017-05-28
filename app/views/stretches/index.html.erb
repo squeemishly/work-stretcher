@@ -3,12 +3,16 @@
 <%= link_to "See Stretches by Body Area", body_areas_path %>
 
 <% @stretches.each do |stretch| %>
-  <h5><%= link_to stretch.name, stretch_path(stretch) %></h5>
-  <ul>
-    <li><%= stretch.description %></li>
-  </ul>
-  <% if current_user && current_user.role == 'admin' %>
-    <p><%= link_to "Edit", edit_admin_stretch_path(stretch) %>
-    <%= link_to "Delete", admin_stretch_path(stretch), method: "delete" %></p>
-  <% end %>
+  <div class="stretches-index-stretches">
+    <div class="stretch-index-names">
+      <h4 class="stretch-name"><%= link_to stretch.name, stretch_path(stretch) %></h4>
+      <%= stretch.description %>
+    </div>
+    <% if current_user && current_user.role == 'admin' %>
+      <div class="admin-buttons">
+        <div class="edit-link"><%= link_to "Edit", edit_admin_stretch_path(stretch) %></div>
+        <div class="delete-link"><%= link_to "Delete", admin_stretch_path(stretch), method: "delete" %></div>
+      </div>
+    <% end %>
+  </div>
 <% end %>

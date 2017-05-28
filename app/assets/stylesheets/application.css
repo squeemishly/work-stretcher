@@ -24,3 +24,26 @@ img {
 .logout {
   text-align: right;
 }
+
+/*.stretches-index-stretches {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}*/
+
+.stretch-name {
+  margin: 0;
+  margin-top: 15px;
+}
+
+.admin-buttons {
+  display: flex;
+}
+
+.edit-link {
+  margin-right: 10px;
+}
+
+.delete-link {
+  margin-left: 10px;
+}
