@@ -9,7 +9,6 @@ RSpec.describe "a user can see a body area index" do
 
     expect(page).to have_css('h3', "Stretches by Body Area")
     expect(page).to have_content body_area.name
-
   end
 
   it "they can see a list of stretches by body area" do

@@ -3,7 +3,6 @@ class Admin::StretchesController < ApplicationController
 
   def new
     @stretch = Stretch.new
-    # still need to get the stretch to associate with the body part.
   end
 
   def create

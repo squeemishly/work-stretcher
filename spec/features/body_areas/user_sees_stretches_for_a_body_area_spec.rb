@@ -8,7 +8,9 @@ RSpec.describe "a user can see a list of stretches for a body part" do
     create(:body_area_stretch, stretch: stretch1, body_area: body_area1)
     create(:body_area_stretch, stretch: stretch2, body_area: body_area1)
 
-    visit body_area_path(body_area1, stretch_search: body_area1.name)
+    visit stretches_path
+    select body_area1.name, from: "stretch_search_body_area_id"
+    click_on "Go!"
 
     expect(page).to have_css('h3', "Stretches for #{body_area1.name}")
     expect(page).to have_link(stretch1.name)
