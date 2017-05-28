@@ -15,9 +15,11 @@
           <%= link_to "Stretches Home", stretches_path %>
         </div>
         <div class="stretch-search">
+
           <%= form_tag(body_area_path(:stretch_search), method: "get") do %>
             <%= label_tag(:stretch_search, "Find a Stretch:") %>
-            <%= text_field_tag :stretch_search %>
+            <%= collection_select :stretch_search, :body_area_id, BodyArea.all, :id, :name, prompt: 'Select Body Area' %>
+            <%#= text_field_tag :stretch_search %>
             <%= submit_tag("Go!") %>
           <% end %>
         </div>
