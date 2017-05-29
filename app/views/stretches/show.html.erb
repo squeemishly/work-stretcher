@@ -2,6 +2,7 @@
 
 <p><%= @stretch.description %></p>
 <img src="<%= @stretch.picture %>"/>
+<br />
 
 <% if current_user %>
   <%= link_to "Favorite", user_favorites_path(current_user, stretch_id: @stretch.id), method: "POST" %>

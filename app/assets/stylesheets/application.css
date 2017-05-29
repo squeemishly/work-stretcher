@@ -31,7 +31,7 @@ img {
   align-items: center;
 }*/
 
-.stretch-name, .body-area-name {
+.stretch-name, .body-area-name, .user-favored-stretches {
   margin: 0;
   margin-top: 15px;
 }
@@ -50,4 +50,9 @@ img {
 
 .body-area-stretches {
   margin: 0;
+}
+
+ .favored-stretch {
+  display: inline;
+  margin-top: 15px;
 }
