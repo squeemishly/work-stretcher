@@ -5,7 +5,7 @@ RSpec.describe "a user can see a body area index" do
     body_area = create(:body_area)
 
     visit stretches_path
-    click_on "See Stretches by Body Area"
+    click_on "See All Stretches by Body Area"
 
     expect(page).to have_css('h3', "Stretches by Body Area")
     expect(page).to have_content body_area.name
@@ -16,7 +16,7 @@ RSpec.describe "a user can see a body area index" do
     stretch = body_area.stretches.create(name: "Standing Hamstring Stretch", description: "Yippee!", picture: "https://media1.popsugar-assets.com/files/thumbor/V79mWjf6Xjup28tDXPGzoWBUVcU/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2013/03/12/2/192/1922729/2a8d7475eae1d6a3_propped-up-hamstring-stretch/i/Standing-Hamstring-Stretch.jpg")
 
     visit stretches_path
-    click_on "See Stretches by Body Area"
+    click_on "See All Stretches by Body Area"
 
     expect(page).to have_css('h3', "Stretches by Body Area")
     click_on body_area.name
