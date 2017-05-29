@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   resources :stretches, only: [:index, :show]
   resources :body_areas, only: [:show, :index]
 
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show] do
+    resources :favorites, only: [:create]
+  end
+
+
   resources :admins, only: [:show]
   namespace :admin do
     resources :stretches, only: [:new, :create, :edit, :update, :destroy]

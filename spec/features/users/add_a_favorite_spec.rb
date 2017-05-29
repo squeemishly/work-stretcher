@@ -5,6 +5,7 @@ RSpec.describe "a user can favorite a stretch" do
     body_area = create(:body_area)
     stretch = create(:stretch)
     user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit stretches_path
     click_on "Favorite"
@@ -25,5 +26,13 @@ RSpec.describe "a user can favorite a stretch" do
   #   visit user_path(user)
   #   expect(page).to have_css('h3', "Favorites")
   #   expect(page).to have_link(stretch.name, href: stretch_path(stretch))
+  # end
+
+  # it "the favorites button only shows up when a user is logged in" do
+  #   stretch = create(:stretch)
+  #   visit stretches_path
+  #
+  #   expect(page).to have_content stretch.name
+  #   expect(page).to_not have_content "Favorite"
   # end
 end
