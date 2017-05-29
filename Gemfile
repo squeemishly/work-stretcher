@@ -1,4 +1,5 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
+ruby "2.3.2"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -14,6 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
