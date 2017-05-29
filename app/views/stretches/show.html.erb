@@ -3,4 +3,8 @@
 <p><%= @stretch.description %></p>
 <img src="<%= @stretch.picture %>"/>
 
+<% if current_user %>
+  <%= link_to "Favorite", user_favorites_path(current_user, stretch_id: @stretch.id), method: "POST" %>
+<% end %>
+
 <%= render partial: "admin_buttons", :locals => {:stretch => @stretch} %>

@@ -20,7 +20,8 @@ RSpec.describe "a user can favorite a stretch" do
     body_area = create(:body_area)
     stretch = create(:stretch)
     user = create(:user)
-
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    
     visit stretch_path(stretch)
     click_on "Favorite"
 
