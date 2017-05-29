@@ -9,6 +9,7 @@ RSpec.describe "a user can favorite a stretch" do
 
     visit stretches_path
     click_on "Favorite"
+    # expect(page).to have_content "#{stretch.name} has been added to your favorites!"
 
     visit user_path(user)
     expect(page).to have_css('h3', "Favorites")
@@ -35,4 +36,5 @@ RSpec.describe "a user can favorite a stretch" do
   #   expect(page).to have_content stretch.name
   #   expect(page).to_not have_content "Favorite"
   # end
+
 end

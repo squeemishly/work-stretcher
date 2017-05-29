@@ -1,0 +1,7 @@
+<h3>Favorites</h3>
+
+<ul>
+  <% current_user.favorites.each do |favorite| %>
+    <li><%= link_to favorite.stretch.name, stretch_path(favorite.stretch) %></li>
+  <% end %>
+</ul>

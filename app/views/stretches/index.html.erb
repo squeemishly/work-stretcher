@@ -8,9 +8,9 @@
       <h4 class="stretch-name"><%= link_to stretch.name, stretch_path(stretch) %></h4>
       <%= stretch.description %>
     </div>
-    <%# if :current_user %>
+    <% if current_user %>
       <%= link_to "Favorite", user_favorites_path(current_user, stretch_id: stretch), method: "POST" %>
-    <%# end %>
+    <% end %>
     <%= render partial: "admin_buttons", :locals => {:stretch => stretch} %>
   </div>
 <% end %>
