@@ -9,7 +9,12 @@
       <%= stretch.description %>
     </div>
     <% if current_user %>
-      <%= link_to "Favorite", user_favorites_path(current_user, stretch_id: stretch), method: "POST" %>
+      <div class="btn-favorite">
+        <%= link_to "Favorite", user_favorites_path(current_user, stretch_id: stretch), method: "POST" %>
+        <%#= if stretch.favorites.where("username = #{current_user.username}") %>
+          <%#= link_to "Remove from Favorites" user_favorite_path(current_user, stretch_id: stretch), method: "DELETE" %>
+        <%# end %>
+      </div>
     <% end %>
     <%= render partial: "admin_buttons", :locals => {:stretch => stretch} %>
   </div>

@@ -21,7 +21,7 @@ RSpec.describe "a user can favorite a stretch" do
     stretch = create(:stretch)
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    
+
     visit stretch_path(stretch)
     click_on "Favorite"
 
@@ -37,5 +37,22 @@ RSpec.describe "a user can favorite a stretch" do
     expect(page).to have_content stretch.name
     expect(page).to_not have_content "Favorite"
   end
+
+  # it "if a user clicks favorite again, it doesn't add the stretch to the favorite list again" do
+  #   body_area = create(:body_area)
+  #   stretch = create(:stretch)
+  #   user = create(:user)
+  #   allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+  #
+  #   visit stretches_path
+  #   save_and_open_page
+  #   click_on "Favorite"
+  #   click_on "Favorite"
+  #
+  #   visit user_path(user)
+  #   expect(page).to have_css('h3', "Favorites")
+  #   expect(page).to have_link(stretch.name, href: stretch_path(stretch))
+  #   expect(page).to_not have_content(stretch.name, count: 2)
+  # end
 
 end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :body_areas, only: [:show, :index]
 
   resources :users, only: [:new, :create, :show] do
-    resources :favorites, only: [:create]
+    resources :favorites, only: [:create, :destroy]
   end
 
 
