@@ -1,0 +1,10 @@
+<h3>Add notes for <%= @stretch.name %></h3>
+
+<%= form_for [current_user, @favorite, @note] do |f| %>
+  <%= f.label :note %>
+  <%= f.text_field :note %>
+
+  <%= f.hidden_field :favorite_id, value: @favorite.id %>
+
+  <%= f.submit %>
+<% end %>

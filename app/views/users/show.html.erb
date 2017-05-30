@@ -5,6 +5,13 @@
   <% current_user.favorites.each do |favorite| %>
     <div class='user-favored-stretches'>
       <h4 class="favored-stretch"><%= link_to favorite.stretch.name, stretch_path(favorite.stretch) %></h4><br />
-      <%= link_to "Remove from Favorites", user_favorite_path(current_user, favorite), method: "DELETE" %>
+      <% if favorite.note %>
+        <%= favorite.note.note %>
+      <% else %>
+        <%= link_to "Add Notes", new_user_favorite_note_path(current_user, favorite) %>
+      <% end %>
+      <div>
+        <%= link_to "Remove from Favorites", user_favorite_path(current_user, favorite), method: "DELETE" %>
+      </div>
     </div>
   <% end %>
