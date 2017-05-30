@@ -19,6 +19,6 @@ RSpec.describe "a user can add a comment to a favorite stretch" do
     click_on "Create Note"
 
     # Why isn't this working? It is on the actual webpage...
-    # expect(page).to have_content "pull hips back to increase the stretch"
+    expect(page).to have_content "pull hips back to increase the stretch"
   end
 end

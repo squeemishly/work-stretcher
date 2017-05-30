@@ -7,6 +7,10 @@
       <h4 class="favored-stretch"><%= link_to favorite.stretch.name, stretch_path(favorite.stretch) %></h4><br />
       <% if favorite.note %>
         <%= favorite.note.note %>
+        <div>
+          <%= link_to "Remove Note", user_favorite_note_path(current_user, favorite, favorite.note), method: "DELETE" %>
+          <%= link_to "Edit Note", edit_user_favorite_note_path(current_user, favorite, favorite.note) %>
+        </div>
       <% else %>
         <%= link_to "Add Notes", new_user_favorite_note_path(current_user, favorite) %>
       <% end %>

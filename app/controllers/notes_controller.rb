@@ -12,6 +12,24 @@ class NotesController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def destroy
+    favorite = Favorite.find(params[:favorite_id])
+    note = favorite.note
+    favorite.update_attribute(:note_id, nil)
+    redirect_to user_path(current_user)
+  end
+
+  def edit
+    @favorite = Favorite.find(params[:favorite_id])
+    @note = Note.find(params[:id])
+  end
+
+  def update
+    @note = Note.find(params[:id])
+    @note.update(note_params)
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def note_params
